@@ -36,3 +36,7 @@ Basic Troubleshooting:
 - Sometimes the demo will fail to generate a file correctly.  Refresh and try again.
 - Sending a model that is too large may result in a model with a number of polygons too large for the ShapeJS server to process.  This can be resolved by creating a smaller model, a simpler model, or increasing decimation.
 - Most browsers will track network requests which you can use to debug.  
+
+Things left to do:
+- The API upload assumes hard coded access tokens.  That flow needs to be completed.
+- More ShapeJS examples.
