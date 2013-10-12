@@ -30,11 +30,13 @@ The current requirements to run the demo are:
 - Apache (point your document root at the main ShapeJS Demo directory)
 - A browser that supports WebGL (for previews).
 
+demoSettings.php contains a number of settings for running the sample application. There are settings for API Oauth access and consumer keys and secrets. SHAPE_JS_PIPELINE contains the url for the ShapeJS server to use.  APP_HOST_NAME is the hostname of the server that your app is running on.
+
 Please note that ShapeJS is still in BETA.
 
 Basic Troubleshooting:
 - Sometimes the demo will fail to generate a file correctly.  Refresh and try again.
-- Sending a model that is too large may result in a model with a number of polygons too large for the ShapeJS server to process.  This can be resolved by creating a smaller model, a simpler model, or increasing decimation.
+- Sending a model that is too large may result in a model with a number of polygons too large for the ShapeJS server to process.  This can be resolved by creating a smaller model, a simpler model, or increasing decimation by adding "meshErrorFactor=1;" to your code.
 - Most browsers will track network requests which you can use to debug.  
 
 Things left to do:
