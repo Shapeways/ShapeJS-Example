@@ -1,10 +1,6 @@
 ShapeJS
 =======
 
-IMPORTANT NOTE 2013-10-12: Due to planned site maintenance of shapeways.com, shapejs.shapeways.com will be unavailable for several hours on the night of 2013-10-12.  
-To continue development during this time, you may use the temporary server by changing this setting in demoSettings.php:
-const SHAPE_JS_PIPELINE = 'http://qa1.nyc.shapeways.net/creator/exec_pipeline_proxy/';
-
 Sample Application for ShapeJS.
 
 ShapeJS is a 3D graphics library that can help you generate printable 3D models. For more information, go to http://shapejs.shapeways.com/.
