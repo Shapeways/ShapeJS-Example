@@ -10,6 +10,62 @@ For more information, go to http://shapejs.shapeways.com/.
 bower install shapejs
 ```
 
+## API
+See `examples` directory for example usage.
+
+### `$.fn.executeShapeJs(params, success, [failure])`
+Take the `.val()` of the selected element, `JSON.stringify` it and pass
+to `execureShapeJs`.
+
+```javascript
+$("#shapejs-script").executeShapeJs({}, function(result){ ... }, function(error){ ... });
+```
+
+`params` can be either an object or [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+`success` is a callback to handle the successful result.
+`failure` is a callback to handle any exceptions.
+
+### `$.fn.loadShapeJsPreview(previewUrl, width, height)`
+Load a ShapeJs model preview into an iframe in the selected element.
+
+The following are the same:
+```javascript
+loadShapeJsPreview("#preview", previewUrl, width, height);
+
+$("#preview").loadShapeJsPreview(previewUrl, width, height);
+```
+
+`previewUrl` this is the `modelPreviewUrl` from the result.
+`width` the width in pixels that the preview should be.
+`height` the height in pixels that the preview should be.
+
+### `executeShapeJs(script, params, success, [failure])`
+Execute a ShapeJs script.
+
+```javascript
+var script = 'function main(args){ ... }';
+executeShapejs(script, {}, function(result){ ... }, function(error){ ... });
+```
+
+`script` a ShapeJs script, this must be `JSON.stringify`'d.
+`params` can be either an object or [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+`success` is a callback to handle the successful result.
+`failure` is a callback to handle any exceptions.
+
+### `loadShapeJsPreview(selector, previewUrl, width, height)`
+Load a ShapeJs model preview into an iframe in the given `selector`
+
+```javascript
+loadShapeJsPreview("#preview", previewUrl, width, height);
+
+$("#preview").loadShapeJsPreview(previewUrl, width, height);
+```
+
+`selector` a jQuery selector for the element to load the preview into (should be a div).
+`previewUrl` this is the `modelPreviewUrl` from the result.
+`width` the width in pixels that the preview should be.
+`height` the height in pixels that the preview should be.
+
 ## License
 ```
 The MIT License (MIT) Copyright (c) 2014 Shapeways <api@shapeways.com> (http://developers.shapeways.com)
