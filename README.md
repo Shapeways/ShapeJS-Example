@@ -13,7 +13,7 @@ bower install shapejs
 ## API
 See `examples` directory for example usage.
 
-### `$.fn.executeShapeJs(params, success, [failure])`
+### $.fn.executeShapeJs(params, success, [failure])
 Take the `.val()` of the selected element, `JSON.stringify` it and pass
 to `execureShapeJs`.
 
@@ -25,7 +25,7 @@ $("#shapejs-script").executeShapeJs({}, function(result){ ... }, function(error)
 `success` is a callback to handle the successful result.
 `failure` is a callback to handle any exceptions.
 
-### `$.fn.loadShapeJsPreview(previewUrl, width, height)`
+### $.fn.loadShapeJsPreview(previewUrl, width, height)
 Load a ShapeJs model preview into an iframe in the selected element.
 
 The following are the same:
@@ -39,7 +39,7 @@ $("#preview").loadShapeJsPreview(previewUrl, width, height);
 `width` the width in pixels that the preview should be.
 `height` the height in pixels that the preview should be.
 
-### `executeShapeJs(script, params, success, [failure])`
+### executeShapeJs(script, params, success, [failure])
 Execute a ShapeJs script.
 
 ```javascript
@@ -52,7 +52,7 @@ executeShapejs(script, {}, function(result){ ... }, function(error){ ... });
 `success` is a callback to handle the successful result.
 `failure` is a callback to handle any exceptions.
 
-### `loadShapeJsPreview(selector, previewUrl, width, height)`
+### loadShapeJsPreview(selector, previewUrl, width, height)
 Load a ShapeJs model preview into an iframe in the given `selector`
 
 ```javascript
