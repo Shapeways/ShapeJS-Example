@@ -1,44 +1,98 @@
-ShapeJS
+ShapeJs
 =======
 
-Sample Application for ShapeJS.
+ShapeJS is a 3D graphics library that can help you generate printable 3D models.
+For more information, go to http://shapejs.shapeways.com/.
 
-ShapeJS is a 3D graphics library that can help you generate printable 3D models. For more information, go to http://shapejs.shapeways.com/.
+## Installing
+### With Bower
+```bash
+bower install shapejs
+```
 
-The following application will allow users to upload a 2D image and have a 3D model generated from that image.  
-The 2D image must be greyscale. The lighter the grey, the thinner that part of the model will be. 'ring-pattern-star.png'
-in the demo images folder is a perfect example of this. The 3D model can then be uploaded to shapeways.com for purchase
-or to put up for sale on the Shapeways marketplace.
+### From Git
+```bash
+git clone git://github.com/Shapeways/ShapeJs
+cp ./ShapeJs/src/jquery.shapejs-x.x.x.min.js ./project/dir/scripts/
+```
 
-The data set by the user is sent to the ShapeJS server with the ShapeJS script. The ShapeJS server will return the
-location of an AOPT file, which is used for previewing, and a model file, which can be uploaded to shapeways.com for 
-printing.
+Or just copy the `src/jquery.shapejs-x.x.x.min.js` file directory from Github.
+https://github.com/Shapeways/ShapeJS-Example/tree/master/src
 
-The ShapeJS script itself is in the 'shapeJsScripts' folder. All ShapeJS scripts use the extension '.sjs' though this is 
-only for clarity. You may give your files any extension you want so long as you can load the text into JS.
+## API
+See `examples` directory for example usage.
 
-There are settings in demoSettings.php for API keys and the host name of your server. The demo will work with 'localhost' 
-by default.
+### $.fn.executeShapeJs(params, success, [failure])
+Take the `.val()` of the selected element, `JSON.stringify` it and pass
+to `execureShapeJs`.
 
-This app is meant to jumpstart you in building applications using ShapeJS and the Shapeways API. Feel free to use as much
-or as little of it as you wish.
+```javascript
+$("#shapejs-script").executeShapeJs({}, function(result){ ... }, function(error){ ... });
+```
 
-The current requirements to run the demo are:
-- PHP
-- Curl extension for PHP
-- PECL Oauth for PHP (should be installed by default on windows binaries)
-- Apache (point your document root at the main ShapeJS Demo directory)
-- A browser that supports WebGL (for previews).
+`params` can be either an object or [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+`success` is a callback to handle the successful result.
+`failure` is a callback to handle any exceptions.
 
-demoSettings.php contains a number of settings for running the sample application. There are settings for API Oauth access and consumer keys and secrets. SHAPE_JS_PIPELINE contains the url for the ShapeJS server to use.  APP_HOST_NAME is the hostname of the server that your app is running on.
+### $.fn.loadShapeJsPreview(previewUrl, width, height)
+Load a ShapeJs model preview into an iframe in the selected element.
 
-Please note that ShapeJS is still in BETA.
+The following are the same:
+```javascript
+loadShapeJsPreview("#preview", previewUrl, width, height);
 
-Basic Troubleshooting:
-- Sometimes the demo will fail to generate a file correctly.  Refresh and try again.
-- Sending a model that is too large may result in a model with a number of polygons too large for the ShapeJS server to process.  This can be resolved by creating a smaller model, a simpler model, or increasing decimation by adding "meshErrorFactor=1;" to your code.
-- Most browsers will track network requests which you can use to debug.  
+$("#preview").loadShapeJsPreview(previewUrl, width, height);
+```
 
-Things left to do:
-- The API upload assumes hard coded access tokens.  That flow needs to be completed.
-- More ShapeJS examples.
+`previewUrl` this is the `modelPreviewUrl` from the result.
+`width` the width in pixels that the preview should be.
+`height` the height in pixels that the preview should be.
+
+### executeShapeJs(script, params, success, [failure])
+Execute a ShapeJs script.
+
+```javascript
+var script = 'function main(args){ ... }';
+executeShapejs(script, {}, function(result){ ... }, function(error){ ... });
+```
+
+`script` a ShapeJs script, this must be `JSON.stringify`'d.
+`params` can be either an object or [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+`success` is a callback to handle the successful result.
+`failure` is a callback to handle any exceptions.
+
+### loadShapeJsPreview(selector, previewUrl, width, height)
+Load a ShapeJs model preview into an iframe in the given `selector`
+
+```javascript
+loadShapeJsPreview("#preview", previewUrl, width, height);
+
+$("#preview").loadShapeJsPreview(previewUrl, width, height);
+```
+
+`selector` a jQuery selector for the element to load the preview into (should be a div).
+`previewUrl` this is the `modelPreviewUrl` from the result.
+`width` the width in pixels that the preview should be.
+`height` the height in pixels that the preview should be.
+
+## License
+```
+The MIT License (MIT) Copyright (c) 2014 Shapeways <api@shapeways.com> (http://developers.shapeways.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```

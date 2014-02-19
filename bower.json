@@ -1,0 +1,26 @@
+B1;2802;0c{
+  "name": "ShapeJs",
+  "version": "2.1.0",
+  "homepage": "https://github.com/Shapeways/ShapeJs",
+  "authors": [
+    "Shapeways <api@shapeways.com>"
+  ],
+  "description": "jQuery library for accessing Shapeways ShapeJs servers",
+  "main": "jquery.shapejs-2.1.0.min.js",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "shapeways",
+    "shapejs",
+    "3d",
+    "modelling"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
