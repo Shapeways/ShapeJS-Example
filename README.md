@@ -10,6 +10,15 @@ For more information, go to http://shapejs.shapeways.com/.
 bower install shapejs
 ```
 
+### From Git
+```bash
+git clone git://github.com/Shapeways/ShapeJs
+cp ./ShapeJs/src/jquery.shapejs-x.x.x.min.js ./project/dir/scripts/
+```
+
+Or just copy the `src/jquery.shapejs-x.x.x.min.js` file directory from Github.
+https://github.com/Shapeways/ShapeJS-Example/tree/master/src
+
 ## API
 See `examples` directory for example usage.
 
