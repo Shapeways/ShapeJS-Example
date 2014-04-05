@@ -24,11 +24,11 @@ This app is meant to jumpstart you in building applications using ShapeJS and th
 or as little of it as you wish.
 
 The current requirements to run the demo are:
-- PHP
+- PHP 5.3
 - Curl extension for PHP
 - PECL Oauth for PHP (should be installed by default on windows binaries)
-- Apache (point your document root at the main ShapeJS Demo directory)
-- A browser that supports WebGL (for previews).
+- Apache 2.2 (point your document root at the main ShapeJS Demo directory)
+- A browser that supports WebGL such as Chrome or Firefox (for previews).
 
 demoSettings.php contains a number of settings for running the sample application. There are settings for API Oauth access and consumer keys and secrets. SHAPE_JS_PIPELINE contains the url for the ShapeJS server to use.  APP_HOST_NAME is the hostname of the server that your app is running on.
 
