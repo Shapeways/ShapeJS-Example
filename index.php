@@ -24,7 +24,7 @@ $scriptTag = time();
    */
   function onGenerateModelSuccess(aoptOutput, modelFilePath) {
     // grab the iframe using the path to the aopt file
-    aoptOutput = 'http://<?php echo DemoSettings::APP_HOST_NAME;?>/proxies/aoptfileProxy.php?aoptFilePath=' + aoptOutput + "&width=500&height=300";
+    aoptOutput = 'http://<?php echo DemoSettings::APP_HOST_NAME;?>/proxies/aoptFileProxy.php?aoptFilePath=' + aoptOutput + "&width=500&height=300";
     $("#x3d-iframe").attr('src',aoptOutput);
     
     // set the model path for uploading later
